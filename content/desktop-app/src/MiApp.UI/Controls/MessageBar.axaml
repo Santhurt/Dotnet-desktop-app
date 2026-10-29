@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MiApp.UI.ViewModels"
+             x:Class="MiApp.UI.Controls.MessageBar"
+             x:DataType="vm:ViewModelBase">
+    <!-- Muestra el error o el aviso de éxito de cualquier ViewModel (hereda su DataContext) -->
+    <StackPanel Spacing="8" Margin="0,0,0,12">
+        <Border Classes="banner error" IsVisible="{Binding HasError}">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <TextBlock Text="⚠️" Margin="0,0,10,0" VerticalAlignment="Center" />
+                <TextBlock Grid.Column="1" Text="{Binding ErrorMessage}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                <Button Grid.Column="2" Classes="flat" Content="✕" Command="{Binding DismissMessagesCommand}" />
+            </Grid>
+        </Border>
+        <Border Classes="banner success" IsVisible="{Binding HasStatus}">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <TextBlock Text="✅" Margin="0,0,10,0" VerticalAlignment="Center" />
+                <SelectableTextBlock Grid.Column="1" Text="{Binding StatusMessage}" TextWrapping="Wrap" VerticalAlignment="Center" />
+                <Button Grid.Column="2" Classes="flat" Content="✕" Command="{Binding DismissMessagesCommand}" />
+            </Grid>
+        </Border>
+        <ProgressBar IsIndeterminate="True" IsVisible="{Binding IsBusy}" Height="3" MinHeight="3" />
+    </StackPanel>
+</UserControl>

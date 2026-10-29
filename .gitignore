@@ -1,0 +1,25 @@
+# Salida de compilación y empaquetado
+[Bb]in/
+[Oo]bj/
+/nupkg/
+*.nupkg
+*.snupkg
+
+# Bases de datos que se crean al ejecutar la plantilla en su sitio
+*.db
+*.db-shm
+*.db-wal
+
+# IDE y editores
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.DotSettings.user
+*.swp
+*~
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

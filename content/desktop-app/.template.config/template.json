@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "santiruizhurt",
+  "classifications": [
+    "Desktop",
+    "Avalonia",
+    "MVVM",
+    "Clean Architecture",
+    "EF Core"
+  ],
+  "identity": "Plantillas.Escritorio.Capas",
+  "groupIdentity": "Plantillas.Escritorio",
+  "name": "Layered desktop app (Avalonia + EF Core)",
+  "shortName": "desktop-app",
+  "description": ".NET 9 solution with clean architecture (Core, Application, Infrastructure, UI), Avalonia + MVVM, Generic Host, EF Core + SQLite with migrations, and three test projects.",
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "sourceName": "MiApp",
+  "preferNameDirectory": true,
+  "guids": [
+    "1E276D9D-7D0E-4546-B804-096068625550",
+    "398DFF4D-1FA5-4A9A-BB3D-AD3C458B38EB",
+    "546DD6FB-98A6-4788-AE1D-A9598151A053",
+    "B11DCDCD-39AE-46E9-AAC8-908C69606514",
+    "CD49B7D6-76B5-4257-A728-4D6C20E59EDF",
+    "D6F6E5B3-4062-443C-8445-A95744DD437F",
+    "E4CF9DD4-4700-414E-A471-587866AB820E",
+    "E905D05E-B2C3-4E58-AD1E-686BB1A1E7AB",
+    "F5E5CF20-414E-4A3C-8B1E-FDD8D763A90C"
+  ],
+  "symbols": {
+    "title": {
+      "type": "parameter",
+      "datatype": "string",
+      "defaultValue": "Mi aplicación",
+      "replaces": "Mi aplicación",
+      "description": "Display title of the app (window and side menu)."
+    },
+    "skipRestore": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Skip restoring NuGet packages after creating the project."
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "**/[Bb]in/**",
+            "**/[Oo]bj/**",
+            ".template.config/**",
+            "**/*.db",
+            "**/*.db-shm",
+            "**/*.db-wal",
+            "**/*.user",
+            "**/.vs/**",
+            "**/.idea/**"
+          ]
+        }
+      ]
+    }
+  ],
+  "primaryOutputs": [
+    {
+      "path": "MiApp.sln"
+    }
+  ],
+  "postActions": [
+    {
+      "id": "restore",
+      "condition": "(!skipRestore)",
+      "description": "Restore the NuGet packages of the solution.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    }
+  ]
+}

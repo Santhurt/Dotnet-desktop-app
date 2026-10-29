@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\MiApp.Application\MiApp.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="MiApp.Application.Services" />
+    <Using Include="MiApp.Core.Entities" />
+    <Using Include="MiApp.Core.Errors" />
+    <Using Include="MiApp.Core.Results" />
+    <Using Include="MiApp.Core.Interfaces" />
+    <Using Include="MiApp.Core.ValueObjects" />
+    <Using Include="NSubstitute" />
+  </ItemGroup>
+</Project>

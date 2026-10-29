@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MiApp.UI.ViewModels"
+             xmlns:controls="using:MiApp.UI.Controls"
+             x:Class="MiApp.UI.Views.HomeView"
+             x:DataType="vm:HomeViewModel">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Margin="0,0,0,16">
+            <TextBlock Classes="h1" Text="Inicio" />
+            <TextBlock Classes="muted" Text="Proyecto generado desde la plantilla desktop-app" />
+        </StackPanel>
+
+        <controls:MessageBar DockPanel.Dock="Top" />
+
+        <StackPanel Spacing="16">
+            <UniformGrid Columns="2" HorizontalAlignment="Left">
+                <Border Classes="card" Width="220" Margin="0,0,16,0">
+                    <StackPanel>
+                        <TextBlock Classes="label" Text="Tareas pendientes" />
+                        <TextBlock Text="{Binding PendingCount}" FontSize="30" FontWeight="SemiBold" />
+                    </StackPanel>
+                </Border>
+                <Border Classes="card" Width="220">
+                    <StackPanel>
+                        <TextBlock Classes="label" Text="Tareas hechas" />
+                        <TextBlock Text="{Binding DoneCount}" FontSize="30" FontWeight="SemiBold"
+                                   Foreground="{DynamicResource SuccessBrush}" />
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <Border Classes="card" MaxWidth="720" HorizontalAlignment="Left">
+                <StackPanel Spacing="6">
+                    <TextBlock Classes="h2" Text="Siguientes pasos" />
+                    <TextBlock TextWrapping="Wrap" Text="1. Sustituye TodoItem por las entidades de tu dominio (Core/Entities)." />
+                    <TextBlock TextWrapping="Wrap" Text="2. Añade sus casos de uso en Application y su configuración de EF en Infrastructure." />
+                    <TextBlock TextWrapping="Wrap" Text="3. Genera una migración: dotnet ef migrations add NombreDelCambio --project src/MiApp.Infrastructure --output-dir Data/Migrations" />
+                    <TextBlock TextWrapping="Wrap" Text="4. Crea el ViewModel y la vista de cada página y regístralos en AppHost, ViewLocator y MainWindowViewModel." />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

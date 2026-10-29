@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Presentación: Avalonia (XAML multiplataforma) + MVVM -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MiApp.UI</RootNamespace>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <!-- Bindings compilados: errores de binding detectados al compilar y sin reflexión en ejecución -->
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" />
+    <PackageReference Include="Avalonia.Desktop" />
+    <PackageReference Include="Avalonia.Themes.Fluent" />
+    <PackageReference Include="Avalonia.Fonts.Inter" />
+    <PackageReference Include="CommunityToolkit.Mvvm" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- La UI solo usa Application en ViewModels; Infrastructure se referencia únicamente para registrar dependencias. -->
+    <ProjectReference Include="..\MiApp.Application\MiApp.Application.csproj" />
+    <ProjectReference Include="..\MiApp.Infrastructure\MiApp.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="MiApp.UI.Tests" />
+  </ItemGroup>
+</Project>

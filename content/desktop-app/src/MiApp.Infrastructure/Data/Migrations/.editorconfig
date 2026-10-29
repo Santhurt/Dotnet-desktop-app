@@ -1,0 +1,3 @@
+# Código generado por "dotnet ef migrations add": los analizadores no deben revisarlo.
+[*.cs]
+generated_code = true

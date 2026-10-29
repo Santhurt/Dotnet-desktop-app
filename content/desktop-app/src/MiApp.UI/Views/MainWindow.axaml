@@ -1,0 +1,37 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MiApp.UI.ViewModels"
+        x:Class="MiApp.UI.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="Mi aplicación"
+        Width="1100" Height="720" MinWidth="800" MinHeight="520"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource PageBackgroundBrush}">
+
+    <Grid ColumnDefinitions="230,*">
+        <!-- Menú lateral -->
+        <Border Background="{DynamicResource SidebarBackgroundBrush}">
+            <DockPanel Margin="14,24">
+                <StackPanel DockPanel.Dock="Top" Margin="10,0,10,28" Spacing="2">
+                    <TextBlock Text="Mi aplicación" FontSize="22" FontWeight="Bold" Foreground="White" TextWrapping="Wrap" />
+                </StackPanel>
+                <TextBlock DockPanel.Dock="Bottom" Margin="10,0" FontSize="11" Foreground="#6B7280" TextWrapping="Wrap"
+                           Text="Arquitectura limpia · Avalonia · EF Core · .NET 9" />
+                <ListBox Classes="nav" Background="Transparent"
+                         ItemsSource="{Binding Pages}" SelectedItem="{Binding SelectedPage}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:DataType="vm:NavigationItem">
+                            <StackPanel Orientation="Horizontal" Spacing="12">
+                                <TextBlock Text="{Binding Icon}" FontSize="16" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding Title}" FontSize="15" Foreground="White" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+        </Border>
+
+        <!-- Página actual: el ViewLocator elige la vista según el tipo de ViewModel -->
+        <ContentControl Grid.Column="1" Margin="28,24" Content="{Binding CurrentPage}" />
+    </Grid>
+</Window>

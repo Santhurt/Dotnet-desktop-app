@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\MiApp.Core\MiApp.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="MiApp.Core.Entities" />
+    <Using Include="MiApp.Core.Errors" />
+    <Using Include="MiApp.Core.Results" />
+    <Using Include="MiApp.Core.ValueObjects" />
+  </ItemGroup>
+</Project>

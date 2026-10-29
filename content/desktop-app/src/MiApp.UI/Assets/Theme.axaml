@@ -1,0 +1,31 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Paleta de la aplicación con variantes para tema claro y oscuro -->
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush x:Key="PageBackgroundBrush" Color="#F4F6FA" />
+            <SolidColorBrush x:Key="CardBackgroundBrush" Color="#FFFFFF" />
+            <SolidColorBrush x:Key="CardBorderBrush" Color="#E5E7EB" />
+            <SolidColorBrush x:Key="MutedTextBrush" Color="#6B7280" />
+            <SolidColorBrush x:Key="RowHoverBrush" Color="#F3F4F6" />
+            <SolidColorBrush x:Key="ErrorBannerBrush" Color="#FEE2E2" />
+            <SolidColorBrush x:Key="SuccessBannerBrush" Color="#DCFCE7" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush x:Key="PageBackgroundBrush" Color="#0F172A" />
+            <SolidColorBrush x:Key="CardBackgroundBrush" Color="#1E293B" />
+            <SolidColorBrush x:Key="CardBorderBrush" Color="#334155" />
+            <SolidColorBrush x:Key="MutedTextBrush" Color="#94A3B8" />
+            <SolidColorBrush x:Key="RowHoverBrush" Color="#273449" />
+            <SolidColorBrush x:Key="ErrorBannerBrush" Color="#4C1D1D" />
+            <SolidColorBrush x:Key="SuccessBannerBrush" Color="#14361F" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <!-- Colores semánticos (iguales en ambos temas) -->
+    <SolidColorBrush x:Key="SidebarBackgroundBrush" Color="#111827" />
+    <SolidColorBrush x:Key="AccentBrush" Color="#2563EB" />
+    <SolidColorBrush x:Key="SuccessBrush" Color="#16A34A" />
+    <SolidColorBrush x:Key="DangerBrush" Color="#DC2626" />
+    <SolidColorBrush x:Key="WarningBrush" Color="#D97706" />
+</ResourceDictionary>

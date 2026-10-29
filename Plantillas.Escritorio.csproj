@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Paquete de plantillas "dotnet new". No contiene código: empaqueta la carpeta content/.
+    Empaquetar:  dotnet pack templates -o templates/nupkg
+    Instalar:    dotnet new install templates/nupkg/Plantillas.Escritorio.1.2.0.nupkg
+  -->
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageId>Plantillas.Escritorio</PackageId>
+    <PackageVersion>1.2.0</PackageVersion>
+    <Title>Desktop templates</Title>
+    <Authors>santiruizhurt</Authors>
+    <Description>dotnet new template for a layered desktop app: Avalonia + MVVM, Generic Host, EF Core + SQLite with migrations, and tests.</Description>
+    <PackageTags>dotnet-new;templates;avalonia;mvvm;efcore;clean-architecture</PackageTags>
+
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <!-- Incluir también .template.config, .config, .gitignore y .editorconfig -->
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <!-- NU5128: el paquete no tiene ensamblados, es lo esperado en un paquete de plantillas -->
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="content\**\*" Exclude="content\**\bin\**;content\**\obj\**;content\**\*.db*;content\**\.idea\**;content\**\.vs\**"
+             PackagePath="content\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

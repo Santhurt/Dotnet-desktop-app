@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Detalles técnicos: base de datos, ficheros, servicios externos -->
+  <PropertyGroup>
+    <RootNamespace>MiApp.Infrastructure</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MiApp.Core\MiApp.Core.csproj" />
+    <ProjectReference Include="..\MiApp.Application\MiApp.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" />
+    <!-- Solo para "dotnet ef" (generar migraciones); no se distribuye con la app -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" PrivateAssets="all" />
+  </ItemGroup>
+</Project>

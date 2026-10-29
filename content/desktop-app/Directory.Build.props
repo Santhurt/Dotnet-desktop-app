@@ -1,0 +1,13 @@
+<Project>
+  <!-- Configuración común a todos los proyectos de la solución -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- CA1515 (tipos internos), CA1848 (LoggerMessage) y CA1716 (palabras reservadas de VB) no aportan en una app de escritorio -->
+    <NoWarn>$(NoWarn);CA1515;CA1848;CA1711;CA1716</NoWarn>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MiApp.UI.ViewModels"
+             xmlns:dto="using:MiApp.Application.DTOs"
+             xmlns:controls="using:MiApp.UI.Controls"
+             x:Class="MiApp.UI.Views.TodosView"
+             x:DataType="vm:TodosViewModel"
+             x:Name="Root">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Margin="0,0,0,16">
+            <TextBlock Classes="h1" Text="Tareas" />
+            <TextBlock Classes="muted" Text="Ejemplo completo de una página: lista, formulario y comandos" />
+        </StackPanel>
+
+        <controls:MessageBar DockPanel.Dock="Top" />
+
+        <!-- Alta rápida -->
+        <Grid DockPanel.Dock="Top" ColumnDefinitions="*,Auto" Margin="0,0,0,16" MaxWidth="720" HorizontalAlignment="Left">
+            <TextBox Text="{Binding NewTitle}" Watermark="Nueva tarea…" Margin="0,0,8,0">
+                <TextBox.KeyBindings>
+                    <KeyBinding Gesture="Enter" Command="{Binding AddCommand}" />
+                </TextBox.KeyBindings>
+            </TextBox>
+            <Button Grid.Column="1" Classes="accent" Content="Añadir" Command="{Binding AddCommand}" />
+        </Grid>
+
+        <Border Classes="card" MaxWidth="720" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Panel>
+                <TextBlock Classes="muted" Text="No hay tareas. Añade la primera arriba." IsVisible="{Binding !HasItems}" />
+                <ListBox Classes="rows" Background="Transparent" ItemsSource="{Binding Items}" IsVisible="{Binding HasItems}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:DataType="dto:TodoItemDto">
+                            <Grid ColumnDefinitions="Auto,*,Auto">
+                                <CheckBox IsChecked="{Binding IsDone, Mode=OneWay}" VerticalAlignment="Center"
+                                          Command="{Binding #Root.((vm:TodosViewModel)DataContext).ToggleCommand}"
+                                          CommandParameter="{Binding}" />
+                                <TextBlock Grid.Column="1" Text="{Binding Title}" VerticalAlignment="Center" TextWrapping="Wrap"
+                                           Classes.muted="{Binding IsDone}" />
+                                <Button Grid.Column="2" Classes="danger" Content="🗑" ToolTip.Tip="Eliminar"
+                                        Command="{Binding #Root.((vm:TodosViewModel)DataContext).DeleteCommand}"
+                                        CommandParameter="{Binding}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Panel>
+        </Border>
+    </DockPanel>
+</UserControl>
